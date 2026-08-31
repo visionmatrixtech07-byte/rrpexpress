@@ -3,21 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RRP Express Logistics | Moving India. Powering Progress.</title>
+    <title>RRP Express Logistics Pvt Ltd | Moving India. Powering Progress.</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* CSS Variables for Premium Gold & Black Theme */
+        /* CSS Variables - Brand Logo Colors */
         :root {
-            --bg-dark: #050505;
-            --bg-surface: #121212;
-            --bg-surface-light: #1e1e1e;
-            --gold-primary: #D4AF37;
-            --gold-hover: #F3E5AB;
+            --brand-blue: #0062FF;
+            --brand-blue-hover: #004ECB;
+            --brand-cyan: #00C896;
+            --bg-dark: #0A0E17;
+            --bg-surface: #111827;
+            --bg-card: #1F2937;
             --text-light: #FFFFFF;
-            --text-muted: #A0A0A0;
+            --text-muted: #9CA3AF;
             --font-main: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
         }
 
-        /* Reset & Base Styles */
         * {
             margin: 0;
             padding: 0;
@@ -36,23 +37,62 @@
             color: inherit;
         }
 
-        /* Header & Navigation */
+        /* Top Announcement / Quick Contact Bar */
+        .top-bar {
+            background-color: #070A10;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 0.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+        }
+
+        .top-contact, .top-socials {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+        }
+
+        .top-contact a, .top-socials a {
+            color: var(--text-muted);
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .top-contact a:hover, .top-socials a:hover {
+            color: var(--brand-cyan);
+        }
+
+        .top-socials a {
+            font-size: 1.1rem;
+        }
+
+        /* Main Header & Seamless Logo Integration */
         header {
-            background-color: rgba(5, 5, 5, 0.95);
-            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
-            padding: 1rem 5%;
+            background-color: #FFFFFF;
+            padding: 0.75rem 5%;
             position: sticky;
             top: 0;
             z-index: 1000;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
         }
 
-        .logo img {
-            height: 60px;
-            /* Filter to make the blue logo fit the gold/black theme better if needed, 
-               otherwise it will display as its natural color */
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-container img {
+            height: 52px;
+            width: auto;
+            object-fit: contain;
+            display: block;
         }
 
         .nav-links {
@@ -61,279 +101,412 @@
         }
 
         .nav-links a {
-            font-weight: 600;
+            font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
             font-size: 0.9rem;
+            color: #0A0E17;
             transition: color 0.3s;
         }
 
         .nav-links a:hover {
-            color: var(--gold-primary);
+            color: var(--brand-blue);
         }
 
-        .contact-btn {
-            background-color: var(--gold-primary);
-            color: var(--bg-dark);
-            padding: 0.6rem 1.5rem;
-            border-radius: 4px;
-            font-weight: bold;
+        .btn-primary {
+            background: linear-gradient(135deg, var(--brand-blue), #004ECB);
+            color: #FFFFFF;
+            padding: 0.65rem 1.4rem;
+            border-radius: 6px;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 98, 255, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(0, 98, 255, 0.45);
+        }
+
+        .btn-whatsapp {
+            background: #25D366;
+            color: #FFFFFF;
+            padding: 0.65rem 1.2rem;
+            border-radius: 6px;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
             transition: all 0.3s ease;
         }
 
-        .contact-btn:hover {
-            background-color: var(--gold-hover);
-            box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+        .btn-whatsapp:hover {
+            background: #1DA851;
+            transform: translateY(-2px);
         }
 
         /* Hero Section */
         .hero {
-            padding: 6rem 5%;
+            padding: 5rem 5%;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            background: linear-gradient(135deg, var(--bg-dark) 0%, #1a1a1a 100%);
-            border-bottom: 2px solid var(--gold-primary);
+            background: radial-gradient(circle at top right, rgba(0, 98, 255, 0.15), transparent 50%),
+                        radial-gradient(circle at bottom left, rgba(0, 200, 150, 0.1), transparent 50%),
+                        var(--bg-dark);
+            border-bottom: 3px solid var(--brand-blue);
         }
 
         .hero-content {
-            max-width: 600px;
+            max-width: 580px;
         }
 
         .tagline {
-            color: var(--gold-primary);
-            font-weight: 700;
+            color: var(--brand-cyan);
+            font-weight: 800;
             letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: 0.9rem;
             margin-bottom: 1rem;
             display: block;
         }
 
         .hero-content h1 {
-            font-size: 3.5rem;
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
+            font-size: 3.2rem;
+            line-height: 1.15;
+            margin-bottom: 1.2rem;
+            font-weight: 800;
+        }
+
+        .hero-content h1 span {
+            color: var(--brand-blue);
         }
 
         .hero-content p {
             color: var(--text-muted);
-            font-size: 1.2rem;
-            margin-bottom: 2.5rem;
+            font-size: 1.15rem;
+            margin-bottom: 2rem;
+        }
+
+        .hero-cta-group {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
         }
 
         .hero-image {
-            max-width: 50%;
+            max-width: 48%;
             height: auto;
+            border-radius: 12px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+            border: 2px solid rgba(0, 98, 255, 0.3);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 3.5rem 5%;
+            background-color: var(--bg-surface);
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 2rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: var(--bg-card);
             border-radius: 8px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.8);
-            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-left: 4px solid var(--brand-cyan);
+        }
+
+        .feature-item i {
+            font-size: 2rem;
+            color: var(--brand-cyan);
+            margin-bottom: 0.75rem;
+        }
+
+        .feature-item h4 {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            margin-bottom: 0.4rem;
+        }
+
+        .feature-item p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
         }
 
         /* Services Section */
         .services {
             padding: 5rem 5%;
-            background-color: var(--bg-surface);
+            background-color: var(--bg-dark);
         }
 
         .section-header {
             text-align: center;
-            margin-bottom: 4rem;
+            margin-bottom: 3.5rem;
         }
 
         .section-header h2 {
-            font-size: 2.5rem;
-            color: var(--gold-primary);
+            font-size: 2.3rem;
+            color: #FFFFFF;
             text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .section-header h2 span {
+            color: var(--brand-blue);
         }
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
         }
 
         .service-card {
-            background-color: var(--bg-surface-light);
-            padding: 2rem;
-            border-radius: 8px;
-            border: 1px solid rgba(255,255,255,0.05);
-            transition: transform 0.3s, border-color 0.3s;
-            text-align: center;
+            background-color: var(--bg-surface);
+            padding: 2.2rem;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--brand-blue), var(--brand-cyan));
+            opacity: 0;
+            transition: opacity 0.3s;
         }
 
         .service-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--gold-primary);
+            transform: translateY(-6px);
+            border-color: rgba(0, 98, 255, 0.4);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+        }
+
+        .service-card:hover::before {
+            opacity: 1;
         }
 
         .service-icon {
-            font-size: 2.5rem;
-            color: var(--gold-primary);
-            margin-bottom: 1rem;
+            font-size: 2.2rem;
+            color: var(--brand-blue);
+            margin-bottom: 1.2rem;
         }
 
         .service-card h3 {
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
+            font-size: 1.25rem;
+            margin-bottom: 0.6rem;
+            color: #FFFFFF;
         }
 
-        /* Features Section */
-        .features {
-            padding: 4rem 5%;
-            background-color: var(--bg-dark);
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            gap: 2rem;
-            border-top: 1px solid rgba(212, 175, 55, 0.2);
-            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
-        }
-
-        .feature-item {
-            text-align: center;
-            max-width: 300px;
-        }
-
-        .feature-item h4 {
-            color: var(--gold-primary);
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
+        .service-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
         }
 
         /* Footer */
         footer {
-            background-color: var(--bg-surface);
+            background-color: #06080E;
             padding: 4rem 5% 2rem;
-            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        .contact-info {
+        .footer-content {
             display: flex;
-            justify-content: center;
-            gap: 3rem;
-            margin-bottom: 2rem;
+            justify-content: space-between;
+            align-items: center;
             flex-wrap: wrap;
+            gap: 2rem;
+            margin-bottom: 3rem;
         }
 
-        .contact-info div {
+        .footer-socials {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-icon-btn {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background-color: var(--bg-surface);
             display: flex;
             align-items: center;
-            gap: 10px;
+            justify-content: center;
+            color: var(--text-light);
             font-size: 1.2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
         }
 
-        .contact-info i {
-            color: var(--gold-primary);
+        .social-icon-btn:hover {
+            background-color: var(--brand-blue);
+            color: #FFFFFF;
+            transform: translateY(-3px);
+        }
+
+        .social-icon-btn.wa:hover {
+            background-color: #25D366;
+        }
+
+        .social-icon-btn.insta:hover {
+            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
         }
 
         .copyright {
+            text-align: center;
             color: var(--text-muted);
-            font-size: 0.9rem;
-            margin-top: 2rem;
+            font-size: 0.88rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 2rem;
         }
 
-        /* Responsive Design */
-        @media (max-width: 768px) {
+        /* Floating Action Bar / Mobile Responsive */
+        @media (max-width: 850px) {
+            .top-bar {
+                flex-direction: column;
+                gap: 0.5rem;
+                text-align: center;
+            }
             .hero {
                 flex-direction: column;
                 text-align: center;
             }
-            .hero-content h1 {
-                font-size: 2.5rem;
-            }
             .hero-image {
                 max-width: 100%;
-                margin-top: 3rem;
+                margin-top: 2.5rem;
+            }
+            .hero-cta-group {
+                justify-content: center;
             }
             .nav-links {
-                display: none; /* Add hamburger menu logic for mobile if needed */
+                display: none;
             }
         }
     </style>
 </head>
 <body>
 
+    <div class="top-bar">
+        <div class="top-contact">
+            <a href="tel:+919014884668"><i class="fa-solid fa-phone"></i> +91 90148 84668</a>
+            <a href="mailto:info@rrpexpresslogistics.com"><i class="fa-solid fa-envelope"></i> info@rrpexpresslogistics.com</a>
+        </div>
+        <div class="top-socials">
+            <a href="https://wa.me/919014884668" target="_blank" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="#" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" target="_blank" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+        </div>
+    </div>
+
     <header>
-        <a href="#" class="logo">
-            <img src="rrpexpresslogo.jpeg" alt="RRP Express Logistics Logo">
+        <a href="#" class="logo-container">
+            <img src="rrpexpresslogo.jpeg" alt="RRP Express Logistics Pvt Ltd">
         </a>
         <nav class="nav-links">
             <a href="#home">Home</a>
             <a href="#services">Services</a>
-            <a href="#about">About</a>
+            <a href="#about">About Us</a>
         </nav>
-        <a href="#contact" class="contact-btn">GET IN TOUCH</a>
+        <a href="https://wa.me/919014884668" target="_blank" class="btn-whatsapp">
+            <i class="fa-brands fa-whatsapp"></i> WhatsApp Us
+        </a>
     </header>
 
     <section id="home" class="hero">
         <div class="hero-content">
             <span class="tagline">PAN INDIA NETWORK</span>
-            <h1>Moving India.<br>Powering Progress.</h1>
+            <h1>Moving India.<br><span>Powering Progress.</span></h1>
             <p>Full truckload, part-load, contract, bulk and project cargo — moving across India, securely and on schedule.</p>
-            <a href="#contact" class="contact-btn">Track Consignment</a>
+            <div class="hero-cta-group">
+                <a href="tel:+919014884668" class="btn-primary"><i class="fa-solid fa-phone"></i> Call Now</a>
+                <a href="https://wa.me/919014884668" class="btn-whatsapp"><i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp</a>
+            </div>
         </div>
-        <img src="https://images.unsplash.com/photo-1519003722824-194d4455a60c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Logistics Truck" class="hero-image">
+        <img src="https://images.unsplash.com/photo-1519003722824-194d4455a60c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="RRP Express Logistics Fleet" class="hero-image">
     </section>
 
     <section class="features">
         <div class="feature-item">
+            <i class="fa-solid fa-map-location-dot"></i>
             <h4>PAN INDIA NETWORK</h4>
-            <p>Delivering across every major city and beyond.</p>
+            <p>Delivering across every major city and region.</p>
         </div>
         <div class="feature-item">
+            <i class="fa-solid fa-shield-halved"></i>
             <h4>SAFE & SECURE</h4>
-            <p>Your cargo, our responsibility.</p>
+            <p>Your cargo, our ultimate responsibility.</p>
         </div>
         <div class="feature-item">
+            <i class="fa-solid fa-headset"></i>
             <h4>24/7 SUPPORT</h4>
-            <p>We're here when you need us.</p>
+            <p>Dedicated customer service around the clock.</p>
         </div>
     </section>
 
     <section id="services" class="services">
         <div class="section-header">
-            <h2>Our Services</h2>
+            <h2>Our <span>Services</span></h2>
         </div>
         <div class="services-grid">
             <div class="service-card">
-                <div class="service-icon">🚚</div>
-                <h3>FULL TRUCKLOAD</h3>
-                <p style="color: var(--text-muted); font-size: 0.9rem;">FTL services for dedicated and large volume cargo.</p>
+                <div class="service-icon"><i class="fa-solid fa-truck-fast"></i></div>
+                <h3>FULL TRUCKLOAD (FTL)</h3>
+                <p>Dedicated high-capacity transportation tailored for large-scale shipments across India.</p>
             </div>
             <div class="service-card">
-                <div class="service-icon">🚛</div>
-                <h3>PART TRUCKLOAD</h3>
-                <p style="color: var(--text-muted); font-size: 0.9rem;">PTL for flexible, cost-effective partial shipments.</p>
+                <div class="service-icon"><i class="fa-solid fa-truck-ramp-box"></i></div>
+                <h3>PART TRUCKLOAD (PTL)</h3>
+                <p>Cost-effective shared load solutions for smaller cargo volumes with guaranteed delivery.</p>
             </div>
             <div class="service-card">
-                <div class="service-icon">📋</div>
+                <div class="service-icon"><i class="fa-solid fa-file-contract"></i></div>
                 <h3>CONTRACT LOGISTICS</h3>
-                <p style="color: var(--text-muted); font-size: 0.9rem;">End-to-end supply chain and warehousing solutions.</p>
+                <p>Customized end-to-end supply chain, warehousing, and long-term fleet management.</p>
             </div>
             <div class="service-card">
-                <div class="service-icon">📦</div>
+                <div class="service-icon"><i class="fa-solid fa-boxes-stacked"></i></div>
                 <h3>BULK CARGO</h3>
-                <p style="color: var(--text-muted); font-size: 0.9rem;">Specialized handling for heavy and bulk commodities.</p>
+                <p>Specialized heavy material handling and bulk transport for industrial raw materials.</p>
             </div>
             <div class="service-card">
-                <div class="service-icon">🏗️</div>
+                <div class="service-icon"><i class="fa-solid fa-city"></i></div>
                 <h3>PROJECT LOGISTICS</h3>
-                <p style="color: var(--text-muted); font-size: 0.9rem;">Complex transport solutions for industrial projects.</p>
+                <p>Complex oversized cargo management engineered specifically for major infrastructure projects.</p>
             </div>
             <div class="service-card">
-                <div class="service-icon">🛡️</div>
+                <div class="service-icon"><i class="fa-solid fa-lock"></i></div>
                 <h3>SECURE CONNECT</h3>
-                <p style="color: var(--text-muted); font-size: 0.9rem;">High-security transport for sensitive materials.</p>
+                <p>High-security transport protocols for high-value and sensitive commercial consignments.</p>
             </div>
         </div>
     </section>
 
-    <footer id="contact">
-        <div class="contact-info">
+    <footer>
+        <div class="footer-content">
             <div>
-                <span style="color: var(--gold-primary);">📞</span> +91 90148 84668
+                <h3 style="color: var(--brand-blue); margin-bottom: 0.5rem;">RRP EXPRESS LOGISTICS PVT LTD</h3>
+                <p style="color: var(--text-muted); font-size: 0.95rem;">Moving India. Powering Progress.</p>
             </div>
-            <div>
-                <span style="color: var(--gold-primary);">✉️</span> info@rrpexpresslogistics.com
+            <div class="footer-socials">
+                <a href="tel:+919014884668" class="social-icon-btn" title="Call Us"><i class="fa-solid fa-phone"></i></a>
+                <a href="mailto:info@rrpexpresslogistics.com" class="social-icon-btn" title="Email Us"><i class="fa-solid fa-envelope"></i></a>
+                <a href="https://wa.me/919014884668" target="_blank" class="social-icon-btn wa" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                <a href="#" target="_blank" class="social-icon-btn insta" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" target="_blank" class="social-icon-btn" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
             </div>
         </div>
         <p class="copyright">© 2026 RRP Express Logistics Pvt Ltd. All rights reserved.</p>
