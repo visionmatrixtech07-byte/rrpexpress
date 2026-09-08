@@ -8,7 +8,6 @@
   <title>RRP Express Logistics | Pan India Transport & Freight Solutions</title>
   <meta name="description" content="RRP Express Logistics Private Limited provides Pan India FTL, PTL, project cargo, bulk cargo and vehicle-placement solutions from Anantapur, Andhra Pradesh.">
   <meta name="keywords" content="transport company Anantapur, logistics company Anantapur, truck transport Hindupur, freight services Tadipatri, Bangalore logistics, Hyderabad transport, Pan India FTL, vehicle attachment loads">
-
   <link rel="canonical" href="https://www.rrpexpresslogistics.com/">
 
   <meta property="og:type" content="website">
@@ -28,7 +27,6 @@
     "@type":"ProfessionalService",
     "name":"RRP Express Logistics Private Limited",
     "url":"https://www.rrpexpresslogistics.com/",
-    "email":"info@rrpexpresslogistics.com",
     "telephone":["+919014884668","+919494831803"],
     "description":"Pan India road freight and logistics solutions including full truckload, part truckload, bulk cargo and project logistics.",
     "address":{
@@ -39,12 +37,15 @@
       "postalCode":"515001",
       "addressCountry":"IN"
     },
+    "areaServed":[
+      {"@type":"City","name":"Anantapur"},
+      {"@type":"City","name":"Hindupur"},
+      {"@type":"City","name":"Tadipatri"},
+      {"@type":"City","name":"Bengaluru"},
+      {"@type":"City","name":"Hyderabad"},
+      {"@type":"Country","name":"India"}
+    ],
     "contactPoint":[
-      {
-        "@type":"ContactPoint",
-        "contactType":"General Enquiries",
-        "email":"info@rrpexpresslogistics.com"
-      },
       {
         "@type":"ContactPoint",
         "contactType":"Director",
@@ -61,17 +62,341 @@
         "email":"accounts@rrpexpresslogistics.com"
       }
     ],
-    "areaServed":[
-      {"@type":"City","name":"Anantapur"},
-      {"@type":"City","name":"Hindupur"},
-      {"@type":"City","name":"Tadipatri"},
-      {"@type":"City","name":"Bengaluru"},
-      {"@type":"City","name":"Hyderabad"},
-      {"@type":"Country","name":"India"}
-    ],
     "sameAs":["https://maps.app.goo.gl/4dVLs6jSuHwgYb837"]
   }
   </script>
+
+  <style>
+    .hero__orb,
+    .hero__grid-lines,
+    .hero__route-path,
+    .hero__route-dot,
+    .hero__status {
+      position: absolute;
+      pointer-events: none;
+    }
+
+    .hero__orb {
+      width: 470px;
+      height: 470px;
+      right: -155px;
+      top: 40px;
+      border: 1px solid rgba(91, 182, 255, .28);
+      border-radius: 50%;
+      box-shadow:
+        0 0 0 55px rgba(8, 120, 249, .06),
+        0 0 0 115px rgba(10, 192, 158, .035);
+      animation: orbitGlow 7s ease-in-out infinite;
+    }
+
+    .hero__grid-lines {
+      inset: 0;
+      opacity: .12;
+      background-image:
+        linear-gradient(rgba(147, 208, 255, .5) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(147, 208, 255, .5) 1px, transparent 1px);
+      background-size: 58px 58px;
+      mask-image: linear-gradient(90deg, transparent, black 40%, black 100%);
+    }
+
+    .hero__route-path {
+      right: 7%;
+      bottom: 100px;
+      width: 390px;
+      height: 200px;
+      border-top: 2px dashed rgba(97, 198, 255, .48);
+      border-radius: 50%;
+      transform: rotate(-23deg);
+      animation: routeDrift 7s linear infinite;
+    }
+
+    .hero__route-dot {
+      right: 16%;
+      bottom: 183px;
+      width: 13px;
+      height: 13px;
+      border: 3px solid #fff;
+      border-radius: 50%;
+      background: var(--teal);
+      box-shadow: 0 0 0 8px rgba(10, 192, 158, .15);
+      animation: locationPulse 2s ease-in-out infinite;
+    }
+
+    .hero__status {
+      right: 65px;
+      top: 44px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border: 1px solid rgba(255, 255, 255, .15);
+      border-radius: 99px;
+      color: rgba(255, 255, 255, .85);
+      background: rgba(4, 20, 39, .42);
+      font-size: .66rem;
+      font-weight: 800;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      backdrop-filter: blur(10px);
+    }
+
+    .hero__status::before {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      content: "";
+      background: var(--teal);
+      box-shadow: 0 0 0 0 rgba(10, 192, 158, .45);
+      animation: signal 1.7s infinite;
+    }
+
+    .hero__panel {
+      animation: panelEnter .9s .25s both;
+    }
+
+    .hero__content {
+      animation: heroEnter .8s both;
+    }
+
+    .trust-strip__inner > div {
+      transition: background .25s ease, transform .25s ease;
+    }
+
+    .trust-strip__inner > div:hover {
+      background: #f5faff;
+      transform: translateY(-3px);
+    }
+
+    .service-card__visual::before {
+      position: absolute;
+      z-index: 1;
+      top: 0;
+      left: -75%;
+      width: 45%;
+      height: 100%;
+      content: "";
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,.22), transparent);
+      transform: skewX(-20deg);
+      transition: left .6s ease;
+    }
+
+    .service-card:hover .service-card__visual::before {
+      left: 135%;
+    }
+
+    .service-card__body {
+      position: relative;
+    }
+
+    .service-card__body::after {
+      position: absolute;
+      right: 25px;
+      bottom: 19px;
+      color: var(--blue);
+      content: "↗";
+      font-size: 1.15rem;
+      opacity: .35;
+      transition: opacity .2s, transform .2s;
+    }
+
+    .service-card:hover .service-card__body::after {
+      opacity: 1;
+      transform: translate(3px, -3px);
+    }
+
+    .cargo-card {
+      isolation: isolate;
+    }
+
+    .cargo-card::before {
+      position: absolute;
+      z-index: 2;
+      top: 18px;
+      right: 18px;
+      display: grid;
+      width: 33px;
+      height: 33px;
+      place-items: center;
+      border: 1px solid rgba(255,255,255,.25);
+      border-radius: 50%;
+      color: white;
+      content: "↗";
+      font-size: .9rem;
+      opacity: 0;
+      transform: translate(-8px, 8px);
+      transition: .25s ease;
+    }
+
+    .cargo-card:hover::before {
+      opacity: 1;
+      transform: translate(0, 0);
+    }
+
+    .route-map::after {
+      position: absolute;
+      inset: 0;
+      content: "";
+      background: radial-gradient(circle at 38% 48%, rgba(10, 192, 158, .18), transparent 22%);
+      animation: mapPulse 4s ease-in-out infinite;
+    }
+
+    .route-map__line {
+      animation: routeSignal 2.8s ease-in-out infinite;
+    }
+
+    .route-map__line--two {
+      animation-delay: .45s;
+    }
+
+    .route-map__line--three {
+      animation-delay: .9s;
+    }
+
+    .credential-grid article {
+      position: relative;
+      overflow: hidden;
+      transition: transform .25s ease, background .25s ease;
+    }
+
+    .credential-grid article::after {
+      position: absolute;
+      top: -60px;
+      right: -60px;
+      width: 125px;
+      height: 125px;
+      border: 1px solid rgba(129, 199, 255, .16);
+      border-radius: 50%;
+      content: "";
+    }
+
+    .credential-grid article:hover {
+      background: rgba(255,255,255,.09);
+      transform: translateY(-5px);
+    }
+
+    .quote {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .quote::before,
+    .quote::after {
+      position: absolute;
+      border-radius: 50%;
+      content: "";
+      pointer-events: none;
+    }
+
+    .quote::before {
+      top: -180px;
+      left: -120px;
+      width: 370px;
+      height: 370px;
+      border: 55px solid rgba(255,255,255,.06);
+    }
+
+    .quote::after {
+      right: -130px;
+      bottom: -170px;
+      width: 390px;
+      height: 390px;
+      border: 60px solid rgba(159, 245, 230, .1);
+    }
+
+    .vehicle-cta {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .vehicle-cta::after {
+      position: absolute;
+      top: -110px;
+      right: 7%;
+      width: 260px;
+      height: 260px;
+      border: 35px solid rgba(8, 120, 249, .07);
+      border-radius: 50%;
+      content: "";
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity .65s ease, transform .65s ease;
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @keyframes heroEnter {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes panelEnter {
+      from { opacity: 0; transform: translateX(28px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    @keyframes orbitGlow {
+      0%, 100% { transform: scale(1); opacity: .65; }
+      50% { transform: scale(1.07); opacity: 1; }
+    }
+
+    @keyframes routeDrift {
+      from { transform: rotate(-23deg) translateX(0); }
+      50% { transform: rotate(-23deg) translateX(-12px); }
+      to { transform: rotate(-23deg) translateX(0); }
+    }
+
+    @keyframes locationPulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.25); }
+    }
+
+    @keyframes signal {
+      0% { box-shadow: 0 0 0 0 rgba(10, 192, 158, .45); }
+      70% { box-shadow: 0 0 0 8px rgba(10, 192, 158, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(10, 192, 158, 0); }
+    }
+
+    @keyframes routeSignal {
+      0%, 100% { opacity: .35; }
+      50% { opacity: 1; box-shadow: 0 0 14px rgba(111, 197, 255, .8); }
+    }
+
+    @keyframes mapPulse {
+      0%, 100% { opacity: .55; }
+      50% { opacity: 1; }
+    }
+
+    @media (max-width: 830px) {
+      .hero__orb { right: -290px; top: 140px; }
+      .hero__route-path,
+      .hero__route-dot,
+      .hero__status { display: none; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero__orb,
+      .hero__route-path,
+      .hero__route-dot,
+      .hero__status::before,
+      .hero__content,
+      .hero__panel,
+      .route-map::after,
+      .route-map__line {
+        animation: none !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
 </head>
 
 <body>
@@ -85,14 +410,8 @@
       </p>
 
       <div class="topbar__contacts">
-        <a href="tel:+919014884668">
-          <i class="fa-solid fa-phone"></i>
-          +91 90148 84668
-        </a>
-        <a href="tel:+919494831803">
-          <i class="fa-solid fa-phone"></i>
-          +91 94948 31803
-        </a>
+        <a href="tel:+919014884668"><i class="fa-solid fa-phone"></i> +91 90148 84668</a>
+        <a href="tel:+919494831803"><i class="fa-solid fa-phone"></i> +91 94948 31803</a>
       </div>
     </div>
   </div>
@@ -113,33 +432,28 @@
         <a href="#cargo">Cargo We Move</a>
         <a href="#credentials">Credentials</a>
         <a href="service-areas.html">Service Areas</a>
-        <a href="#contact">Contact</a>
-        <a class="menu__attach" href="attach-vehicle.html">
-          Attach Vehicle <i class="fa-solid fa-arrow-right"></i>
-        </a>
+        <a href="contact.html">Contact</a>
+        <a class="menu__attach" href="attach-vehicle.html">Attach Vehicle <i class="fa-solid fa-arrow-right"></i></a>
       </nav>
 
-      <a class="button button--primary header__quote" href="#quote">
-        Request Transport
-      </a>
+      <a class="button button--primary header__quote" href="#quote">Request Transport</a>
     </div>
   </header>
 
   <main>
     <section class="hero" id="home">
       <div class="hero__shade"></div>
+      <div class="hero__grid-lines"></div>
+      <div class="hero__orb"></div>
+      <div class="hero__route-path"></div>
+      <div class="hero__route-dot"></div>
+      <div class="hero__status">Network Active</div>
 
       <div class="container hero__grid">
         <div class="hero__content">
-          <p class="eyebrow eyebrow--light">
-            <span></span>
-            Pan India logistics partner
-          </p>
+          <p class="eyebrow eyebrow--light"><span></span> Pan India logistics partner</p>
 
-          <h1>
-            Transport capacity that keeps
-            <em>business moving.</em>
-          </h1>
+          <h1>Transport capacity that keeps <em>business moving.</em></h1>
 
           <p class="hero__copy">
             Dependable road-freight coordination for OEMs, manufacturers, traders and supply-chain teams—managed from Anantapur and delivered across India.
@@ -174,9 +488,7 @@
             <li><i class="fa-solid fa-check"></i> Multi-city vehicle placement</li>
           </ul>
 
-          <a href="#quote">
-            Start an enquiry <i class="fa-solid fa-arrow-right"></i>
-          </a>
+          <a href="#quote">Start an enquiry <i class="fa-solid fa-arrow-right"></i></a>
         </aside>
       </div>
     </section>
@@ -187,14 +499,17 @@
           <strong>Registered</strong>
           <span>Private Limited Company</span>
         </div>
+
         <div>
           <strong>GST Compliant</strong>
           <span>Business-ready documentation</span>
         </div>
+
         <div>
           <strong>Pan India</strong>
           <span>Freight coordination</span>
         </div>
+
         <div>
           <strong>Two-way Network</strong>
           <span>Loads and vehicle attachment</span>
@@ -202,19 +517,12 @@
       </div>
     </section>
 
-    <section class="section services" id="services">
+    <section class="section services reveal" id="services">
       <div class="container">
         <div class="section-heading">
           <div>
-            <p class="eyebrow">
-              <span></span>
-              What we do
-            </p>
-
-            <h2>
-              Built for serious
-              <em>freight movement.</em>
-            </h2>
+            <p class="eyebrow"><span></span> What we do</p>
+            <h2>Built for serious <em>freight movement.</em></h2>
           </div>
 
           <p>
@@ -226,9 +534,7 @@
           <article class="service-card">
             <div class="service-card__visual">
               <img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=900&q=84" alt="Container truck for full truckload transport" loading="lazy">
-              <span class="service-card__icon">
-                <i class="fa-solid fa-truck"></i>
-              </span>
+              <span class="service-card__icon"><i class="fa-solid fa-truck"></i></span>
             </div>
             <div class="service-card__body">
               <h3>Full Truckload</h3>
@@ -239,9 +545,7 @@
           <article class="service-card">
             <div class="service-card__visual">
               <img src="https://images.unsplash.com/photo-1587293852726-70cdb56c2866?auto=format&fit=crop&w=900&q=84" alt="Palletised warehouse cargo for part truckload movement" loading="lazy">
-              <span class="service-card__icon">
-                <i class="fa-solid fa-boxes-stacked"></i>
-              </span>
+              <span class="service-card__icon"><i class="fa-solid fa-boxes-stacked"></i></span>
             </div>
             <div class="service-card__body">
               <h3>Part Truckload</h3>
@@ -252,12 +556,10 @@
           <article class="service-card">
             <div class="service-card__visual">
               <img src="https://images.unsplash.com/photo-1617303331806-3d6b58e03241?auto=format&fit=crop&w=900&q=84" alt="Industrial metal scrap yard" loading="lazy">
-              <span class="service-card__icon">
-                <i class="fa-solid fa-industry"></i>
-              </span>
+              <span class="service-card__icon"><i class="fa-solid fa-industry"></i></span>
             </div>
             <div class="service-card__body">
-              <h3>Industrial &amp; Bulk Cargo</h3>
+              <h3>Industrial & Bulk Cargo</h3>
               <p>Coordinated transport for raw materials, construction inputs and bulk commercial consignments.</p>
             </div>
           </article>
@@ -265,9 +567,7 @@
           <article class="service-card">
             <div class="service-card__visual">
               <img src="https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?auto=format&fit=crop&w=900&q=84" alt="Commercial cargo terminal for project logistics" loading="lazy">
-              <span class="service-card__icon">
-                <i class="fa-solid fa-gears"></i>
-              </span>
+              <span class="service-card__icon"><i class="fa-solid fa-gears"></i></span>
             </div>
             <div class="service-card__body">
               <h3>Project Logistics</h3>
@@ -278,9 +578,7 @@
           <article class="service-card">
             <div class="service-card__visual">
               <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=900&q=84" alt="Warehouse operations for contract logistics" loading="lazy">
-              <span class="service-card__icon">
-                <i class="fa-solid fa-file-contract"></i>
-              </span>
+              <span class="service-card__icon"><i class="fa-solid fa-file-contract"></i></span>
             </div>
             <div class="service-card__body">
               <h3>Contract Logistics</h3>
@@ -291,9 +589,7 @@
           <article class="service-card service-card--accent">
             <div class="service-card__visual">
               <img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=900&q=84" alt="Truck available for vehicle placement" loading="lazy">
-              <span class="service-card__icon">
-                <i class="fa-solid fa-road"></i>
-              </span>
+              <span class="service-card__icon"><i class="fa-solid fa-road"></i></span>
             </div>
             <div class="service-card__body">
               <h3>Vehicle Placement</h3>
@@ -304,19 +600,12 @@
       </div>
     </section>
 
-    <section class="section cargo" id="cargo">
+    <section class="section cargo reveal" id="cargo">
       <div class="container">
         <div class="section-heading section-heading--center">
           <div>
-            <p class="eyebrow">
-              <span></span>
-              Cargo and industries
-            </p>
-
-            <h2>
-              Loads we are ready to
-              <em>move with care.</em>
-            </h2>
+            <p class="eyebrow"><span></span> Cargo and industries</p>
+            <h2>Loads we are ready to <em>move with care.</em></h2>
           </div>
 
           <p>
@@ -329,7 +618,7 @@
             <img src="https://images.unsplash.com/photo-1617303331806-3d6b58e03241?auto=format&fit=crop&w=1200&q=84" alt="Metal scrap and industrial materials yard" loading="lazy">
             <div>
               <span>Industrial freight</span>
-              <h3>Metal scrap, iron ore &amp; minerals</h3>
+              <h3>Metal scrap, iron ore & minerals</h3>
             </div>
           </article>
 
@@ -337,7 +626,7 @@
             <img src="https://images.unsplash.com/photo-1705382063926-e26ac23ecf4e?auto=format&fit=crop&w=900&q=84" alt="Cement truck for construction material transport" loading="lazy">
             <div>
               <span>Construction supply</span>
-              <h3>Cement, pipes &amp; building materials</h3>
+              <h3>Cement, pipes & building materials</h3>
             </div>
           </article>
 
@@ -345,7 +634,7 @@
             <img src="https://images.unsplash.com/photo-1587293852726-70cdb56c2866?auto=format&fit=crop&w=900&q=84" alt="Warehouse pallets for FMCG and packaging distribution" loading="lazy">
             <div>
               <span>Business distribution</span>
-              <h3>FMCG, paper &amp; packaging</h3>
+              <h3>FMCG, paper & packaging</h3>
             </div>
           </article>
 
@@ -353,7 +642,7 @@
             <img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=900&q=84" alt="Heavy truck on a freight route" loading="lazy">
             <div>
               <span>Specialised movement</span>
-              <h3>Machinery, project cargo &amp; eligible e-waste</h3>
+              <h3>Machinery, project cargo & eligible e-waste</h3>
             </div>
           </article>
         </div>
@@ -365,18 +654,11 @@
       </div>
     </section>
 
-    <section class="section route-section">
+    <section class="section route-section reveal">
       <div class="container route-section__grid">
         <div>
-          <p class="eyebrow">
-            <span></span>
-            Strategic coverage
-          </p>
-
-          <h2>
-            Local presence.
-            <em>National reach.</em>
-          </h2>
+          <p class="eyebrow"><span></span> Strategic coverage</p>
+          <h2>Local presence. <em>National reach.</em></h2>
 
           <p>
             From our Anantapur office, we coordinate freight requirements across Andhra Pradesh, Telangana, Karnataka and Pan India routes.
@@ -392,7 +674,8 @@
           </div>
 
           <a class="text-link" href="service-areas.html">
-            Explore service areas <i class="fa-solid fa-arrow-right"></i>
+            Explore service areas
+            <i class="fa-solid fa-arrow-right"></i>
           </a>
         </div>
 
@@ -412,18 +695,12 @@
       </div>
     </section>
 
-    <section class="credentials" id="credentials">
+    <section class="credentials reveal" id="credentials">
       <div class="container">
         <div class="credentials__intro">
-          <p class="eyebrow eyebrow--light">
-            <span></span>
-            Company credentials
-          </p>
+          <p class="eyebrow eyebrow--light"><span></span> Company credentials</p>
 
-          <h2>
-            A logistics partner backed by
-            <em>verified registrations.</em>
-          </h2>
+          <h2>A logistics partner backed by <em>verified registrations.</em></h2>
 
           <p>
             Clear documentation gives procurement, OEM and enterprise teams confidence from the first enquiry.
@@ -462,32 +739,18 @@
       </div>
     </section>
 
-    <section class="section quote" id="quote">
+    <section class="section quote reveal" id="quote">
       <div class="container quote__grid">
         <div class="quote__intro">
-          <p class="eyebrow eyebrow--light">
-            <span></span>
-            Transport enquiry
-          </p>
-
-          <h2>
-            Tell us what needs to
-            <em>move.</em>
-          </h2>
+          <p class="eyebrow eyebrow--light"><span></span> Transport enquiry</p>
+          <h2>Tell us what needs to <em>move.</em></h2>
 
           <p>
             Share your requirement and our team can coordinate the right transport conversation.
           </p>
 
-          <a href="tel:+919014884668">
-            <i class="fa-solid fa-phone"></i>
-            +91 90148 84668
-          </a>
-
-          <a href="tel:+919494831803">
-            <i class="fa-solid fa-phone"></i>
-            +91 94948 31803
-          </a>
+          <a href="tel:+919014884668"><i class="fa-solid fa-phone"></i> +91 90148 84668</a>
+          <a href="tel:+919494831803"><i class="fa-solid fa-phone"></i> +91 94948 31803</a>
         </div>
 
         <form class="enquiry-form" data-whatsapp-form data-form-type="Transport enquiry">
@@ -551,18 +814,11 @@
       </div>
     </section>
 
-    <section class="vehicle-cta">
+    <section class="vehicle-cta reveal">
       <div class="container vehicle-cta__inner">
         <div>
-          <p class="eyebrow">
-            <span></span>
-            For vehicle owners
-          </p>
-
-          <h2>
-            Have a vehicle?
-            <em>Attach it for loads.</em>
-          </h2>
+          <p class="eyebrow"><span></span> For vehicle owners</p>
+          <h2>Have a vehicle? <em>Attach it for loads.</em></h2>
         </div>
 
         <div>
@@ -577,7 +833,7 @@
     </section>
   </main>
 
-  <footer class="footer" id="contact">
+  <footer class="footer">
     <div class="container footer__grid">
       <div>
         <a class="brand brand--image brand--footer" href="#home">
@@ -591,36 +847,14 @@
 
       <div>
         <h3>Contact</h3>
-
         <a href="tel:+919014884668">+91 90148 84668</a>
         <a href="tel:+919494831803">+91 94948 31803</a>
-
-        <h3 style="margin-top:22px;">Official Communication</h3>
-
-        <a href="mailto:info@rrpexpresslogistics.com">
-          General: info@rrpexpresslogistics.com
-        </a>
-
-        <a href="mailto:director@rrpexpresslogistics.com">
-          Director: director@rrpexpresslogistics.com
-        </a>
-
-        <a href="mailto:operations@rrpexpresslogistics.com">
-          Operations: operations@rrpexpresslogistics.com
-        </a>
-
-        <a href="mailto:accounts@rrpexpresslogistics.com">
-          Accounts: accounts@rrpexpresslogistics.com
-        </a>
+        <a href="contact.html">Official contact channels</a>
       </div>
 
       <div>
         <h3>Office</h3>
-
-        <p>
-          6-4-994, Maruthi Nagar,<br>
-          Anantapur, Andhra Pradesh 515001
-        </p>
+        <p>6-4-994, Maruthi Nagar,<br>Anantapur, Andhra Pradesh 515001</p>
 
         <a class="text-link" href="https://maps.app.goo.gl/4dVLs6jSuHwgYb837?g_st=ac" target="_blank" rel="noopener">
           Open in Google Maps
@@ -630,23 +864,17 @@
 
       <div>
         <h3>Quick links</h3>
-
         <a href="#services">Services</a>
         <a href="service-areas.html">Service Areas</a>
         <a href="attach-vehicle.html">Attach Your Vehicle</a>
-        <a href="#quote">Request Transport</a>
+        <a href="contact.html">Contact Us</a>
         <a href="privacy.html">Privacy</a>
       </div>
     </div>
 
     <div class="container footer__bottom">
-      <span>
-        © <span id="year"></span> RRP Express Logistics Private Limited. All rights reserved.
-      </span>
-
-      <a href="#top">
-        Back to top <i class="fa-solid fa-arrow-up"></i>
-      </a>
+      <span>© <span id="year"></span> RRP Express Logistics Private Limited. All rights reserved.</span>
+      <a href="#top">Back to top <i class="fa-solid fa-arrow-up"></i></a>
     </div>
   </footer>
 
@@ -655,5 +883,20 @@
   </a>
 
   <script src="script.js"></script>
+
+  <script>
+    document.querySelectorAll(".reveal").forEach((element) => {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+
+      observer.observe(element);
+    });
+  </script>
 </body>
 </html>
